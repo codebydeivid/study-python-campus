@@ -1,0 +1,11 @@
+from datetime import date
+data_atual = date.today()
+print('Nome do Individuo:', 'Quantos anos tem:')
+print('Dinofauro, ', int(data_atual.year)-2004)
+print('Alien, o 8º, ', int(data_atual.year)-1979)
+print('Yoda, ', int(data_atual.year)-1977)
+print('Crazy Frog, ', int(data_atual.year)-1997)
+print('Diego Asererrê, ', int(data_atual.year)-2002)
+print('Enzo Valentino, ', int(data_atual.year)-2012)
+print('Sabrina, a idosa, ', int(data_atual.year)-(-3500))
+print('Menininho, ', int(data_atual.year)-2010)
