@@ -11,5 +11,4 @@ class Aquecedor:
         return self.temperatura
 
     def getTemperatura(self):
-        return self.temperatura                             
-    
+        return self.temperatura
