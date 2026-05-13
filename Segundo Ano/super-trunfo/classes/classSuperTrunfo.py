@@ -1,4 +1,6 @@
+import os
 import random
+
 class Carta:
     ATRIBUTOS = {
         1: "Resistência HP",
@@ -178,3 +180,4 @@ class Jogo:
 
     def pausar():
         input("\n Pressione ENTER para continuar.")
+        os.system("cls")

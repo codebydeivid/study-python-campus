@@ -1,9 +1,8 @@
-import os
 import random
 from classes.classSuperTrunfo import *
 
-Jogo.cabecalho("SUPER TRUNFO - BATALHA DE ARTRÓPODES")
-
+#Variáveis
+nome = input("Qual o seu nome? ")
 um_mano = Jogador("Você", eh_cpu=False)
 cpu = Jogador("CPU", eh_cpu=True)
 
@@ -13,6 +12,8 @@ random.shuffle(baralho)
 metade = len(baralho) // 2
 um_mano.distribuir_cartas(baralho[:metade])
 cpu.distribuir_cartas(baralho[metade:])
+
+Jogo.cabecalho("SUPER TRUNFO - BATALHA DE ARTRÓPODES")
 
 print(f"\n  Cartas distribuídas: {um_mano.get_nome()} e {cpu.get_nome()} receberam {metade} cartas cada.\n")
 
@@ -26,7 +27,7 @@ while not um_mano.esta_sem_cartas() and not cpu.esta_sem_cartas():
         f"{cpu.get_nome()}: {cpu.get_quantidade_cartas()} carta(s)"
     )
 
-    print(f"\n  [ Vez de {um_mano.get_nome()} ]")
+    print(f"\n  [ Sua vez {nome} ]")
     carta_h, idx_h = um_mano.escolher_carta()
     indice_atrib   = um_mano.escolher_atributo()
     nome_atrib     = Carta.ATRIBUTOS[indice_atrib]
@@ -44,8 +45,8 @@ while not um_mano.esta_sem_cartas() and not cpu.esta_sem_cartas():
     valor_h   = carta_h.get_atributo_por_indice(indice_atrib)
     valor_cpu = carta_cpu.get_atributo_por_indice(indice_atrib)
 
-    print(f"\n  {carta_h.get_nome():<28} → {nome_atrib}: {valor_h}")
-    print(f"  {carta_cpu.get_nome():<28} → {nome_atrib}: {valor_cpu}")
+    print(f"\n  {carta_h.get_nome():<28} -> {nome_atrib}: {valor_h}")
+    print(f"  {carta_cpu.get_nome():<28} -> {nome_atrib}: {valor_cpu}")
 
     resultado = Jogador.comparar_cartas(carta_h, carta_cpu, indice_atrib)
 
@@ -60,7 +61,6 @@ while not um_mano.esta_sem_cartas() and not cpu.esta_sem_cartas():
     else:
         print(f"\n  EMPATE! Cada um fica com sua carta.")
 
-    
     Jogo.pausar()
 
 Jogo.cabecalho("FIM DE JOGO")
@@ -70,10 +70,7 @@ print(f"  Vitórias da {cpu.get_nome():<12}: {cpu.get_vitorias()}")
 
 if cpu.esta_sem_cartas():
     print(f"\n PARABÉNS! Você conquistou todas as cartas e GANHOU!")
-    os.system("cls")
 elif um_mano.esta_sem_cartas():
     print(f"\n A CPU ficou com todas as cartas. Você PERDEU!")
-    os.system("cls")
 else:
     print(f"\n A partida terminou em EMPATE!")
-    os.system("cls")
