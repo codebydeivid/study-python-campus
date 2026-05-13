@@ -100,7 +100,7 @@ class Jogador:
             print(f"\n  === Carta {i} ===")
             carta.exibir_carta()
 
-    def escolher_carta(self) -> tuple[Carta, int]:
+    def escolher_carta(self):
         if self.__eh_cpu:
             idx = random.randint(0, len(self.__mao) - 1)
             return self.__mao[idx], idx
@@ -116,7 +116,7 @@ class Jogador:
             except ValueError:
                 print("Entrada inválida. Digite apenas números.")
 
-    def escolher_atributo(self) -> int:
+    def escolher_atributo(self):
         if self.__eh_cpu:
             return random.randint(1, 5)
 
@@ -133,8 +133,7 @@ class Jogador:
             except ValueError:
                 print("Entrada inválida. Digite apenas números.")
 
-    @staticmethod
-    def comparar_cartas(carta_a: Carta, carta_b: Carta, indice_atributo: int) -> int:
+    def comparar_cartas(carta_a: Carta, carta_b: Carta, indice_atributo: int):
         valor_a = carta_a.get_atributo_por_indice(indice_atributo)
         valor_b = carta_b.get_atributo_por_indice(indice_atributo)
 
@@ -158,3 +157,24 @@ class Jogador:
             f"Cartas: {len(self.__mao)}"
             f"Vitórias: {self.__vitorias})"
         )
+
+class Jogo:
+    def criar_baralho():
+        return [
+            Carta("Formiga de Mel",      10,  10, 15,   5,  95),
+            Carta("Barata",              80,  30, 90,  90,  10),
+            Carta("Abelha",              30,  40, 40,  50,  80),
+            Carta("Escorpião",          100,  85, 65,  90,  40),
+            Carta("Mariposa",            50,  20, 30,  60, 100),
+            Carta("Louva-Deus",          70,  40, 45,  30, 100),
+            Carta("Lacraia",             95,  90, 40, 100,  50),
+            Carta("Aranha Viúva Negra", 100,  90, 50, 100,  90),
+        ]
+
+    def cabecalho(texto: str):
+        print("\n" + "=" * 46)
+        print(f"  {texto}")
+        print("=" * 46)
+
+    def pausar():
+        input("\n Pressione ENTER para continuar.")
