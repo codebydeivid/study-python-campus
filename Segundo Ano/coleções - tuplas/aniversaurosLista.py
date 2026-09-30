@@ -1,0 +1,1 @@
+aniversauros = ["bolinho de festa", "um feliz aniversário", "cartinha de pokemon", "uma banda de forró", "anel do lanterna verde", "mangá"]
