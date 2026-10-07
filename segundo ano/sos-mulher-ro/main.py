@@ -9,7 +9,7 @@ def main():
     )
 
     vitima = Vitima(
-        1, "Maria", "maria@email.com", 999999999,
+        1, "Maria", "maria@email.com", 193218450,
         "1234", "Ativa", 123456789, date(2005, 5, 10), True
     )
 
